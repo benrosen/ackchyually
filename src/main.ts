@@ -7,12 +7,12 @@
  * @typeParam T The input type of the function being tested.
  * @typeParam U The expected output type of the function being tested.
  */
-export const ackchyually = <T, U>(
+export default <T, U>(
   assertions: [T, U][],
   name: string,
   onEvaluate: (value: T) => U,
   onMessage: (assertion: [T, U]) => string = ([input, expected]) =>
-    `Returns ${expected} for ${input}.`
+    `Returns ${expected} for ${input}`
 ): void =>
   describe(`\`${name}\``, () =>
     assertions.forEach((assertion) =>
