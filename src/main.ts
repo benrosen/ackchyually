@@ -1,10 +1,22 @@
-export const delayMillis = (delayMs: number): Promise<void> => new Promise(resolve => setTimeout(resolve, delayMs));
-
-export const greet = (name: string): string => `Hello ${name}`
-
-export const foo = async (): Promise<boolean> => {
-  console.log(greet('World'))
-  await delayMillis(1000)
-  console.log('done')
-  return true
-}
+/**
+ * Test a function against an array of inputs and expected outputs and render the results to the console.
+ * @param assertions An array of assertions where each assertion consists of a test argument and its expected result.
+ * @param name The name of the function being tested.
+ * @param onEvaluate A callback function to convert inputs into results.
+ * @param onMessage? An optional callback function that renders this assertion as a human-readable string.
+ * @typeParam T The input type of the function being tested.
+ * @typeParam U The expected output type of the function being tested.
+ */
+export const ackchyually = <T, U>(
+  assertions: [T, U][],
+  name: string,
+  onEvaluate: (value: T) => U,
+  onMessage: (assertion: [T, U]) => string = ([input, expected]) =>
+    `Returns ${expected} for ${input}.`
+): void =>
+  describe(`\`${name}\``, () =>
+    assertions.forEach((assertion) =>
+      it(onMessage(assertion), () =>
+        expect(onEvaluate(assertion[0])).toStrictEqual(assertion[1])
+      )
+    ));
