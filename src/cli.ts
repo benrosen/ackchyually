@@ -1,4 +1,3 @@
 #!/usr/bin/env node
-import { foo } from './main'
 
-foo()
+console.warn("Not implemented.");
