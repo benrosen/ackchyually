@@ -11,8 +11,8 @@
     "test"
   ],
   "main": "./dist/tsc/main.js",
+  "exports": "./dist/tsc/main.js",
   "types": "./dist/tsc/main.d.ts",
-  "type": "module",
   "browser": "./dist/esbuild/browser.js",
   "bin": {
     "my-cli-tool": "./dist/esbuild/cli.js"
