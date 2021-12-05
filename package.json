@@ -1,6 +1,6 @@
 {
   "name": "ackchyually",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "TypeScript testing utility powered by Jest.",
   "author": "Ben Rosen <benjamin.p.rosen@gmail.com>",
   "repository": "https://github.com/benrosen/ackchyually",
